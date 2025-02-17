@@ -4,7 +4,7 @@ import {RiscZeroCheats} from "risc0/test/RiscZeroCheats.sol";
 import {console2} from "forge-std/console2.sol";
 import {Test} from "forge-std/Test.sol";
 import {IRiscZeroVerifier} from "risc0/IRiscZeroVerifier.sol";
-import {EvenNumber} from "../contracts/OddNumber.sol";
+import {OddNumber} from "../contracts/OddNumber.sol";
 import {Elf} from "./Elf.sol"; // auto-generated contract after running `cargo build`.
 
 contract OddNumberTest is RiscZeroCheats, Test {
