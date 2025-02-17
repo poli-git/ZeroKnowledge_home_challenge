@@ -20,7 +20,10 @@ contract OddNumberTest is RiscZeroCheats, Test {
         uint256 number = 1311;
         (bytes memory journal, bytes memory seal) = prove(Elf.IS_ODD_PATH, abi.encode(number));
 
+        uint256 previous_count = oddNumber.get();
+
         oddNumber.set(abi.decode(journal, (uint256)), seal);
-        assertEq(oddNumber.get(), number);
-    }
+        
+        // check that the counter was incremented
+        assert(oddNumber.get() == previous_count + 1);    }
 }
