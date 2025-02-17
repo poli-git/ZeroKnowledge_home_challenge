@@ -29,6 +29,6 @@ contract OddNumberTest is RiscZeroCheats, Test {
         (bytes memory journal, bytes memory seal) = prove(Elf.IS_ODD_PATH, abi.encode(number));
 
         oddNumber.set(abi.decode(journal, (uint256)), seal);
-        !assertEq(oddNumber.get(), number);
+        assert(oddNumber.get(), "number is not odd");
     }
 }
