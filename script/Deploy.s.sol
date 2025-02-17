@@ -14,12 +14,7 @@ import {OddNumber} from "../contracts/OddNumber.sol";
 ///     * Set one of these two environment variables to control the deployment wallet:
 ///         * ETH_WALLET_PRIVATE_KEY private key of the wallet account.
 ///         * ETH_WALLET_ADDRESS address of the wallet account.
-///
-/// See the Foundry documentation for more information about Solidity scripts,
-/// including information about wallet options.
-///
-/// https://book.getfoundry.sh/tutorials/solidity-scripting
-/// https://book.getfoundry.sh/reference/forge/forge-script
+
 contract OddNumberDeploy is Script, RiscZeroCheats {
     // Path to deployment config file, relative to the project root.
     string constant CONFIG_FILE = "script/config.toml";
