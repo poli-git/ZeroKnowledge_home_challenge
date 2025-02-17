@@ -1,3 +1,19 @@
+// Copyright 2024 RISC Zero, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// SPDX-License-Identifier: Apache-2.0
+
 pragma solidity ^0.8.24;
 
 import {Script} from "forge-std/Script.sol";
@@ -7,7 +23,7 @@ import {IRiscZeroVerifier} from "risc0/IRiscZeroVerifier.sol";
 import {RiscZeroGroth16Verifier} from "risc0/groth16/RiscZeroGroth16Verifier.sol";
 import {ControlID} from "risc0/groth16/ControlID.sol";
 
-import {OddNumber} from "../contracts/OddNumber.sol";
+import {EvenNumber} from "../contracts/EvenNumber.sol";
 
 /// @notice Deployment script for the RISC Zero starter project.
 /// @dev Use the following environment variable to control the deployment:
@@ -20,7 +36,7 @@ import {OddNumber} from "../contracts/OddNumber.sol";
 ///
 /// https://book.getfoundry.sh/tutorials/solidity-scripting
 /// https://book.getfoundry.sh/reference/forge/forge-script
-contract OddNumberDeploy is Script, RiscZeroCheats {
+contract EvenNumberDeploy is Script, RiscZeroCheats {
     // Path to deployment config file, relative to the project root.
     string constant CONFIG_FILE = "script/config.toml";
 
@@ -79,8 +95,8 @@ contract OddNumberDeploy is Script, RiscZeroCheats {
         }
 
         // Deploy the application contract.
-        OddNumber oddNumber = new OddNumber(verifier);
-        console2.log("Deployed OddNumber to", address(oddNumber));
+        EvenNumber evenNumber = new EvenNumber(verifier);
+        console2.log("Deployed EvenNumber to", address(evenNumber));
 
         vm.stopBroadcast();
     }
