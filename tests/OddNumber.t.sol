@@ -25,5 +25,6 @@ contract OddNumberTest is RiscZeroCheats, Test {
         oddNumber.set(abi.decode(journal, (uint256)), seal);
         
         // check that the counter was incremented
-        assert(oddNumber.get() == previous_count + 1);    }
+        assert(oddNumber.get() == previous_count + 1);    
+    }
 }
