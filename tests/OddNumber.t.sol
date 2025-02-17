@@ -27,4 +27,16 @@ contract OddNumberTest is RiscZeroCheats, Test {
         // check that the counter was incremented
         assert(oddNumber.get() == previous_count + 1);    
     }
+
+    function test_SetOdd_Error() public {
+        uint256 number = 1312;
+        (bytes memory journal, bytes memory seal) = prove(Elf.IS_ODD_PATH, abi.encode(number));
+
+        uint256 previous_count = oddNumber.get();
+
+        oddNumber.set(abi.decode(journal, (uint256)), seal);
+        
+        // check that the counter was incremented
+        assert(oddNumber.get() == previous_count);    
+    }
 }
