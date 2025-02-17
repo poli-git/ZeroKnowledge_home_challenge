@@ -16,18 +16,18 @@ contract OddNumberTest is RiscZeroCheats, Test {
         assertEq(oddNumber.get(), 0);
     }
 
+    function testSetVal(uint256 _val) public { 
+        (bytes memory journal, bytes memory seal) = prove(Elf.IS_ODD_PATH, abi.encode(_val));
+
+        oddNumber.set(abi.decode(journal, (uint256)), seal);
+        assertEq(oddNumber.get(), _val); 
+        }
+
     function test_SetOdd() public {
         uint256 number = 1311;
         (bytes memory journal, bytes memory seal) = prove(Elf.IS_ODD_PATH, abi.encode(number));
 
         oddNumber.set(abi.decode(journal, (uint256)), seal);
         assertEq(oddNumber.get(), number);
-    }
-
-    function test_SetEven() public {
-        uint256 number = 12;
-        (bytes memory journal, bytes memory seal) = prove(Elf.IS_ODD_PATH, abi.encode(number));
-
-        oddNumber.set(abi.decode(journal, (uint256)), seal);
     }
 }
