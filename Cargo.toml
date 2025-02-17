@@ -8,7 +8,7 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace.dependencies]
-alloy = { version = "0.11.0", features = ["full"] }
+alloy = { version = "0.9", features = ["full"] }
 alloy-primitives = { version = "0.8", default-features = false, features = ["rlp", "serde", "std"] }
 alloy-sol-types = { version = "0.8" }
 anyhow = { version = "1.0.75" }
