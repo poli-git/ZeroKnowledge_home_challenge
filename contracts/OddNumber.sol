@@ -29,11 +29,11 @@ contract OddNumber {
 
     /// @notice Set the odd number stored on the contract. Requires a RISC Zero proof that the number is odd.
     function set(uint256 x, bytes calldata seal) public {
-        // Construct the expected journal data. 
+        // Construct the expected journal data.
         // Verify will fail if journal does not match.
         bytes memory journal = abi.encode(x);
         verifier.verify(seal, imageId, sha256(journal));
-        
+
         counter += 1;
     }
 
