@@ -97,11 +97,11 @@ async fn main() -> Result<()> {
      let tracer = init_tracer()?;
  
      // start a new active span
-     tracer.in_span("generating number", |cx| {
+     tracer.in_span("PEPEPEP generating number", |cx| {
          let span = cx.span();
          let num = gen_number();
          span.add_event(
-             "opentel demo event Generating Number".to_string(),
+             "FIFUFUUUU opentel demo event Generating Number".to_string(),
              vec![Key::new("number").i64(num.into())],
          );
  
@@ -110,11 +110,11 @@ async fn main() -> Result<()> {
  
  
          // start a new span
-         tracer.in_span("generate another number", |cx| {
+         tracer.in_span("PAPAPA generate another number", |cx| {
              let span = cx.span();
              let num = gen_number();
              span.add_event(
-                 "Generating Number".to_string(),
+                 "ZEZEZE Generating Number".to_string(),
                  vec![Key::new("number").i64(num.into())],
              )
          })
