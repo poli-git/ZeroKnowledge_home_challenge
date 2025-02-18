@@ -62,7 +62,7 @@ fn init_tracer() -> Result<trace::Tracer, TraceError> {
         .with_exporter(
             opentelemetry_otlp::new_exporter()
                 .tonic() // create GRPC layer 
-                .with_endpoint("http://localhost:4317"), // GRPC OTLP Jaeger Endpoint
+                .with_endpoint("http://host.docker.internal:4317"), // GRPC OTLP Jaeger Endpoint
         )
         // Trace provider configuration 
         .with_trace_config(
