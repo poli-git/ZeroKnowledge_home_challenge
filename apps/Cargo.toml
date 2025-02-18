@@ -12,7 +12,7 @@ clap = { version = "4.0", features = ["derive", "env"] }
 env_logger = { version = "0.11.6" }
 log = { workspace = true }
 methods = { workspace = true }
-opentelemetry = { version = "0.28.0", features = ["rt-tokio"] }
+opentelemetry = { version = "0.28.0" }
 opentelemetry-otlp = { version = "0.28.0", features = ["tonic", "metrics"] }
 opentelemetry-semantic-conventions = { version = "0.28.0" }
 risc0-ethereum-contracts = { workspace = true }
