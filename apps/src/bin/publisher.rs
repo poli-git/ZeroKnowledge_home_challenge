@@ -18,7 +18,6 @@ use opentelemetry::{
 };
 use opentelemetry_otlp::WithExportConfig;
 
-
 // `IOddNumber` interface automatically generated via the alloy `sol!` macro.
 alloy::sol!(
     #[sol(rpc, all_derives)]
@@ -56,10 +55,10 @@ fn init_tracer() -> Result<trace::Tracer, TraceError> {
         .tracing() // create OTLP tracing pipeline
         .with_exporter(
             opentelemetry_otlp::new_exporter()
-                .tonic() // create GRPC layer 
+                .tonic() // create GRPC layer
                 .with_endpoint("http://localhost:4317"), // GRPC OTLP Jaeger Endpoint
         )
-        // Trace provider configuration 
+        // Trace provider configuration
         .with_trace_config(
             trace::config().with_resource(Resource::new(vec![KeyValue::new(
                 opentelemetry_semantic_conventions::resource::SERVICE_NAME,
@@ -78,7 +77,6 @@ fn main() -> Result<(), TraceError> {
     // intialise the tracer
     let tracer = init_tracer().unwrap();
 
-
     // Parse CLI Arguments: The application starts by parsing command-line arguments provided by the user.
     let args = Args::parse();
 
@@ -89,15 +87,11 @@ fn main() -> Result<(), TraceError> {
         .wallet(wallet)
         .on_http(args.rpc_url);
 
-
     // start a new active span
     tracer.in_span("Create an alloy provider ", |cx| {
         let span = cx.span();
-        
-        span.add_event(
-            "Creating provider".to_string(),
-            vec![args.rpc_url],
-        );       
+
+        span.add_event("Creating provider".to_string(), vec![args.rpc_url]);
     });
 
     // gracefully shutdown the tracer
