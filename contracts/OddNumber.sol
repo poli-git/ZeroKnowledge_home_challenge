@@ -3,10 +3,8 @@ pragma solidity ^0.8.24;
 import {IRiscZeroVerifier} from "risc0/IRiscZeroVerifier.sol";
 import {ImageID} from "./ImageID.sol"; // auto-generated contract after running `cargo build`.
 
-/// @title A starter application using RISC Zero.
-/// @notice This basic application holds a number, guaranteed to be odd.
-/// @dev This contract demonstrates one pattern for offloading the computation of an expensive
-///      or difficult to implement function to a RISC Zero guest running on the zkVM.
+/// @title A fermah-challenge application using RISC Zero.
+/// @notice  Implements a counter that increments every time an odd number is submitted to this contract
 contract OddNumber {
     /// @notice RISC Zero verifier contract address.
     IRiscZeroVerifier public immutable verifier;
@@ -17,7 +15,7 @@ contract OddNumber {
     ///         (in this case, checking if a number is odd) are considered valid.
     bytes32 public constant imageId = ImageID.IS_ODD_ID;
 
-    /// @notice A number that is guaranteed, by the RISC Zero zkVM, to be odd.
+    /// @notice A counter that is incremented every time a submitted number is guaranteed to be odd by the RISC Zero zkVM.
     ///         It can be set by calling the `set` function.
     uint256 public counter;
 
@@ -27,7 +25,7 @@ contract OddNumber {
         counter = 0;
     }
 
-    /// @notice Set the odd number stored on the contract. Requires a RISC Zero proof that the number is odd.
+    /// @notice Set the counter stored on the contract. Requires a RISC Zero proof that the number is odd.
     function set(uint256 x, bytes calldata seal) public {
         // Construct the expected journal data.
         // Verify will fail if journal does not match.
@@ -37,7 +35,7 @@ contract OddNumber {
         counter += 1;
     }
 
-    /// @notice Returns the number stored.
+    /// @notice Returns the counter stored.
     function get() public view returns (uint256) {
         return counter;
     }
