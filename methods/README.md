@@ -3,7 +3,7 @@
  
 This directory contains the [zkVM] portion of the [RISC Zero] application.
 
-It was defined the `is_odd` [guest program] to act as a coprocessor to the [on-chain logic].
+The `is_odd` [guest program] has been defined to act as a coprocessor to the [on-chain logic].
 
  
 
