@@ -1,4 +1,4 @@
-# Fermah - Challenge:  RISC Zero Ethereum Deployment Guide
+# Fermah - Challenge: Deployment Guide
 
 
 ## Deploy your project on a local network
