@@ -1,4 +1,4 @@
-# # Fermah - Challenge: Guest Program
+# Fermah - Challenge: Guest Program
 
 Each file in the [`src/bin`](./src/bin) folder defines a program for the zkVM.
 
