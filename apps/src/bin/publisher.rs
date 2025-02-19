@@ -50,6 +50,7 @@ struct Args {
     input: U256,
 }
 
+////////////////////////////////////////////////
 // create a constant key
 const RANDOM: Key = Key::from_static_str("random.value");
 
@@ -76,6 +77,7 @@ fn gen_number() -> u32 {
     let mut rng = rand::thread_rng();
     rng.gen()
 }
+////////////////////////////////////////////////
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -83,8 +85,7 @@ async fn main() -> Result<()> {
     // Parse CLI Arguments: The application starts by parsing command-line arguments provided by the user.
     let args = Args::parse();
 
-    //
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     // set the Global Propagator
     global::set_text_map_propagator(TraceContextPropagator::new());
 
@@ -117,14 +118,11 @@ async fn main() -> Result<()> {
     // gracefully shutdown the tracer
     global::shutdown_tracer_provider();
 
-    //
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Create an alloy provider for that private key and URL.
     let wallet = EthereumWallet::from(args.eth_wallet_private_key);
-    let provider = ProviderBuilder::new()
-        .with_recommended_fillers()
-        .wallet(wallet)
-        .on_http(args.rpc_url);
+    let provider = ProviderBuilder::new().wallet(wallet).on_http(args.rpc_url);
 
     // ABI encode input: Before sending the proof request to the Bonsai proving service,
     // the input number is ABI-encoded to match the format expected by the guest code running in the zkVM.
