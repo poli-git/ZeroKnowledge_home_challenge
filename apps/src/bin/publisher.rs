@@ -86,6 +86,7 @@ async fn main() -> Result<()> {
     let args = Args::parse();
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     // set the Global Propagator
     global::set_text_map_propagator(TraceContextPropagator::new());
 
@@ -117,7 +118,7 @@ async fn main() -> Result<()> {
 
     // gracefully shutdown the tracer
     global::shutdown_tracer_provider();
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Create an alloy provider for that private key and URL.
@@ -155,9 +156,6 @@ async fn main() -> Result<()> {
     // This call includes the verified number, the post-state digest, and the seal (proof).
     let contract = IOddNumber::new(args.contract, provider);
     let call_builder = contract.set(x, seal.into());
-
-    // Initialize the async runtime environment to handle the transaction sending.
-    let runtime = tokio::runtime::Runtime::new()?;
 
     // Send transaction: Finally, send the transaction to the Ethereum blockchain,
     // effectively calling the set function of the OddNumber contract with the verified number and proof.
