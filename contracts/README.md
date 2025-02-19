@@ -2,7 +2,7 @@
 
 This directory contains the Solidity contracts for an application with [RISC Zero] on Ethereum.
 
-The contract included is [`OddNumber.sol`](./OddNumber.sol). 
+The contract included for this challenge is [`OddNumber.sol`](./OddNumber.sol). 
 Implements a counter that increments every time an odd number is submitted to this contract.
 
 
