@@ -1,15 +1,11 @@
-# zkVM Methods
+# Fermah - Challenge:  zkVM Methods
 
-This directory contains the [zkVM] portion of your [RISC Zero] application.
-This is where you will define one or more [guest programs] to act as a coprocessor to your [on-chain logic].
+ 
+This directory contains the [zkVM] portion of the [RISC Zero] application.
 
-> In typical use cases, the only code in this directory that you will need to edit is inside [guest/src/bin].
+It was defined the `is_odd` [guest program] to act as a coprocessor to the [on-chain logic].
 
-## Writing Guest Code
-
-To learn to write code for the zkVM, we recommend the [Hello World tutorial][zkvm-hello-world].
-
-Examples of what you can do in the guest can be found in the [RISC Zero examples].
+ 
 
 ## From Guest Code to Binary File
 
