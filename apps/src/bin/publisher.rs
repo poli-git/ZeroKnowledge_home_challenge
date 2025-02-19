@@ -123,11 +123,16 @@ async fn main() -> Result<()> {
 
     // Create an alloy provider for that private key and URL.
     let wallet = EthereumWallet::from(args.eth_wallet_private_key);
+
+    println!("Conexion {}", "Failed to get block number");
+
     let provider = ProviderBuilder::new().wallet(wallet).on_http(args.rpc_url);
 
     // ABI encode input: Before sending the proof request to the Bonsai proving service,
     // the input number is ABI-encoded to match the format expected by the guest code running in the zkVM.
     let input = args.input.abi_encode();
+
+    /*
 
     let env = ExecutorEnv::builder().write_slice(&input).build()?;
 
@@ -168,6 +173,8 @@ async fn main() -> Result<()> {
         "Transaction included in block {}",
         receipt.block_number.expect("Failed to get block number")
     );
+
+    */
 
     Ok(())
 }
