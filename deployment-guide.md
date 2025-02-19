@@ -1,14 +1,5 @@
-# RISC Zero Ethereum Deployment Guide
+# Fermah - Challenge:  RISC Zero Ethereum Deployment Guide
 
-Welcome to the [RISC Zero] Ethereum Deployment guide!
-
-Once you've written your [contracts] and your [methods], and [tested] your program, you're ready to deploy your contract.
-
-You can either:
-
-- [Deploy your project to a local network][section-local]
-- [Deploy to a testnet][section-testnet]
-- [Deploy to Ethereum Mainnet][section-mainnet]
 
 ## Deploy your project on a local network
 
@@ -52,20 +43,20 @@ You can deploy your contracts and run an end-to-end test or demo as follows:
     == Logs ==
     You are deploying on ChainID 31337
     Deployed RiscZeroGroth16Verifier to 0x5FbDB2315678afecb367f032d93F642f64180aa3
-    Deployed EvenNumber to 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    Deployed OddNumber to 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
     ...
     ```
 
-    Save the `EvenNumber` contract address to an env variable:
+    Save the `OddNumber` contract address to an env variable:
 
     ```bash
-    export EVEN_NUMBER_ADDRESS=#COPY EVEN NUMBER ADDRESS FROM DEPLOY LOGS
+    export ODD_NUMBER_ADDRESS=#COPY ODD NUMBER ADDRESS FROM DEPLOY LOGS
     ```
 
     > You can also use the following command to set the contract address if you have [`jq`][jq] installed:
     >
     > ```bash
-    > export EVEN_NUMBER_ADDRESS=$(jq -re '.transactions[] | select(.contractName == "EvenNumber") | .contractAddress' ./broadcast/Deploy.s.sol/31337/run-latest.json)
+    > export ODD_NUMBER_ADDRESS=$(jq -re '.transactions[] | select(.contractName == "OddNumber") | .contractAddress' ./broadcast/Deploy.s.sol/31337/run-latest.json)
     > ```
 
 ### Interact with your local deployment
@@ -73,7 +64,7 @@ You can deploy your contracts and run an end-to-end test or demo as follows:
 1. Query the state:
 
     ```bash
-    cast call --rpc-url http://localhost:8545 ${EVEN_NUMBER_ADDRESS:?} 'get()(uint256)'
+    cast call --rpc-url http://localhost:8545 ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
 2. Publish a new state
@@ -82,14 +73,14 @@ You can deploy your contracts and run an end-to-end test or demo as follows:
     cargo run --bin publisher -- \
         --chain-id=31337 \
         --rpc-url=http://localhost:8545 \
-        --contract=${EVEN_NUMBER_ADDRESS:?} \
+        --contract=${ODD_NUMBER_ADDRESS:?} \
         --input=12345678
     ```
 
 3. Query the state again to see the change:
 
     ```bash
-    cast call --rpc-url http://localhost:8545 ${EVEN_NUMBER_ADDRESS:?} 'get()(uint256)'
+    cast call --rpc-url http://localhost:8545 ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
 ## Deploy your project on Sepolia testnet
@@ -127,20 +118,20 @@ You can deploy your contracts on the `Sepolia` testnet and run an end-to-end tes
     You are deploying on ChainID 11155111
     Deploying using config profile: sepolia
     Using IRiscZeroVerifier contract deployed at 0x925d8331ddc0a1F0d96E68CF073DFE1d92b69187
-    Deployed EvenNumber to 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    Deployed OddNumber to 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
     ...
     ```
 
-    Save the `EvenNumber` contract address to an env variable:
+    Save the `OddNumber` contract address to an env variable:
 
     ```bash
-    export EVEN_NUMBER_ADDRESS=#COPY EVEN NUMBER ADDRESS FROM DEPLOY LOGS
+    export ODD_NUMBER_ADDRESS=#COPY ODD NUMBER ADDRESS FROM DEPLOY LOGS
     ```
 
     > You can also use the following command to set the contract address if you have [`jq`][jq] installed:
     >
     > ```bash
-    > export EVEN_NUMBER_ADDRESS=$(jq -re '.transactions[] | select(.contractName == "EvenNumber") | .contractAddress' ./broadcast/Deploy.s.sol/11155111/run-latest.json)
+    > export ODD_NUMBER_ADDRESS=$(jq -re '.transactions[] | select(.contractName == "OddNumber") | .contractAddress' ./broadcast/Deploy.s.sol/11155111/run-latest.json)
     > ```
 
 ### Interact with your Sepolia testnet deployment
@@ -148,7 +139,7 @@ You can deploy your contracts on the `Sepolia` testnet and run an end-to-end tes
 1. Query the state:
 
     ```bash
-    cast call --rpc-url https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${EVEN_NUMBER_ADDRESS:?} 'get()(uint256)'
+    cast call --rpc-url https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
 2. Publish a new state
@@ -157,14 +148,14 @@ You can deploy your contracts on the `Sepolia` testnet and run an end-to-end tes
     cargo run --bin publisher -- \
         --chain-id=11155111 \
         --rpc-url=https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} \
-        --contract=${EVEN_NUMBER_ADDRESS:?} \
+        --contract=${ODD_NUMBER_ADDRESS:?} \
         --input=12345678
     ```
 
 3. Query the state again to see the change:
 
     ```bash
-    cast call --rpc-url https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${EVEN_NUMBER_ADDRESS:?} 'get()(uint256)'
+    cast call --rpc-url https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
 ## Deploy your project on Ethereum mainnet
@@ -205,20 +196,20 @@ You can deploy your contract on Ethereum Mainnet as follows:
     You are deploying on ChainID 1
     Deploying using config profile: mainnet
     Using IRiscZeroVerifier contract deployed at 0x8EaB2D97Dfce405A1692a21b3ff3A172d593D319
-    Deployed EvenNumber to 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    Deployed OddNumber to 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
     ...
     ```
 
-    Save the `EvenNumber` contract address to an env variable:
+    Save the `OddNumber` contract address to an env variable:
 
     ```bash
-    export EVEN_NUMBER_ADDRESS=#COPY EVEN NUMBER ADDRESS FROM DEPLOY LOGS
+    export ODD_NUMBER_ADDRESS=#COPY ODD NUMBER ADDRESS FROM DEPLOY LOGS
     ```
 
     > You can also use the following command to set the contract address if you have [`jq`][jq] installed:
     >
     > ```bash
-    > export EVEN_NUMBER_ADDRESS=$(jq -re '.transactions[] | select(.contractName == "EvenNumber") | .contractAddress' ./broadcast/Deploy.s.sol/1/run-latest.json)
+    > export ODD_NUMBER_ADDRESS=$(jq -re '.transactions[] | select(.contractName == "OddNumber") | .contractAddress' ./broadcast/Deploy.s.sol/1/run-latest.json)
     > ```
 
 ### Interact with your Ethereum Mainnet deployment
@@ -226,7 +217,7 @@ You can deploy your contract on Ethereum Mainnet as follows:
 1. Query the state:
 
     ```bash
-    cast call --rpc-url https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${EVEN_NUMBER_ADDRESS:?} 'get()(uint256)'
+    cast call --rpc-url https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
 2. Publish a new state
@@ -238,14 +229,14 @@ You can deploy your contract on Ethereum Mainnet as follows:
     cargo run --bin publisher -- \
         --chain-id=1 \
         --rpc-url=https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} \
-        --contract=${EVEN_NUMBER_ADDRESS:?} \
+        --contract=${ODD_NUMBER_ADDRESS:?} \
         --input=12345678
     ```
 
 3. Query the state again to see the change:
 
     ```bash
-    cast call --rpc-url https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${EVEN_NUMBER_ADDRESS:?} 'get()(uint256)'
+    cast call --rpc-url https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
 [section-mainnet]: #deploy-your-project-on-ethereum-mainnet
