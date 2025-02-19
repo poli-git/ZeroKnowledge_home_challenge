@@ -161,8 +161,15 @@ async fn main() -> Result<()> {
 
     // Send transaction: Finally, send the transaction to the Ethereum blockchain,
     // effectively calling the set function of the OddNumber contract with the verified number and proof.
-    let pending_tx = runtime.block_on(call_builder.send())?;
-    runtime.block_on(pending_tx.get_receipt())?;
+    let pending_tx = call_builder.send().await?;
+
+    // Wait for the transaction to be included and get the receipt.
+    let receipt = pending_tx.get_receipt().await?;
+
+    println!(
+        "Transaction included in block {}",
+        receipt.block_number.expect("Failed to get block number")
+    );
 
     Ok(())
 }
