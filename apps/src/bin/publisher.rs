@@ -100,7 +100,10 @@ async fn main() -> Result<()> {
     // Wait for the transaction to be included and get the receipt.
     let receipt = pending_tx.get_receipt().await?;
 
-    tracing::info!("Process completed - Proof has been published successfully - TX Hash: {:?}", receipt.transaction_hash.to_string());
+    tracing::info!(
+        "Process completed - Proof has been published successfully - TX Hash: {:?}",
+        receipt.transaction_hash.to_string()
+    );
 
     Ok(())
 }
