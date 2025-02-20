@@ -19,16 +19,6 @@ In order to build the solution using the RISC Zero Foundry Template, changes wer
 - ***Publisher Application***: This is the main orchestration app and is located in the [apps](./apps) folder. The **publisher** application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. 
 
 
-
- and Here is a simplified overview of how devs can integrate RISC Zero, including with [Bonsai][docs-bonsai] proving, into their Ethereum smart contracts:
-
-![RISC Zero Foundry Template Diagram](images/risc0-foundry-template.png)
-
-1. Run your application logic in the [RISC Zero zkVM][docs-zkvm]. The provided [publisher](./apps) app sends an off-chain proof request to the [Bonsai] proving service.
-2. [Bonsai][docs-bonsai] generates the program result, written to the [journal][term-journal], and a SNARK proof of its correctness.
-3. The [publisher](./apps) app submits this proof and journal on-chain to your app contract for validation.
-4. Your app contract calls the [RISC Zero Verifier][docs-verifier] to validate the proof. If the verification is successful, the journal is deemed trustworthy and can be safely used.
-
 ## Dependencies
 
 First, [install Rust][install-rust] and [Foundry][install-foundry], and then restart your terminal.
