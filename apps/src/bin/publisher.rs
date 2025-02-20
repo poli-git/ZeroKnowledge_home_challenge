@@ -56,13 +56,13 @@ async fn main() -> Result<()> {
     let wallet = EthereumWallet::from(args.eth_wallet_private_key);
     let provider = ProviderBuilder::new().wallet(wallet).on_http(args.rpc_url);
 
-    tracing::info!("Create an alloy provider for that private key and URL");
+    tracing::info!("Created alloy provider");
 
     // ABI encode input: Before sending the proof request to the Bonsai proving service,
     // the input number is ABI-encoded to match the format expected by the guest code running in the zkVM.
     let input = args.input.abi_encode();
 
-    tracing::info!("ABI had been encoded");
+    tracing::info!("ABI has been encoded");
 
     let env = ExecutorEnv::builder().write_slice(&input).build()?;
 
