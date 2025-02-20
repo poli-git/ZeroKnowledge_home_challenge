@@ -6,6 +6,9 @@
 The assignment received listed the need to create system consisting of an on-chain smart contract and an off-chain component that demonstrates zero-knowledge proof generation and  verification using with both Rust and development practices. The system should showcase the ability to work with both [Rust][install-rust] and [Solidity][solidity-org] while implementing modern blockchain.
 
 
+### Technical Assessment
+
+After reviewing and validating proposed documentation and running some internal tests to get a better understanding about requirements, the best approach to folow in order to complete the assignment is to generate the solution by levering the [risc0-foundry-template][risc0-foundry-tpl]
 
  and Here is a simplified overview of how devs can integrate RISC Zero, including with [Bonsai][docs-bonsai] proving, into their Ethereum smart contracts:
 
@@ -202,3 +205,4 @@ Below are the primary files in the project directory
 [steel-repo]: https://github.com/risc0/risc0-ethereum/tree/main/crates/steel
 [erc20-counter]: https://github.com/risc0/risc0-ethereum/tree/main/examples/erc20-counter
 [solidity-org]: https://soliditylang.org/
+[risc0-foundry-tpl]: https://github.com/risc0/risc0-foundry-template
