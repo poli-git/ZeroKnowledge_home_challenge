@@ -1,5 +1,4 @@
 mod trace_logs;
-
 use alloy::{
     network::EthereumWallet, providers::ProviderBuilder, signers::local::PrivateKeySigner,
     sol_types::SolValue,
@@ -49,24 +48,22 @@ async fn main() -> Result<()> {
     // Initialize tracing
     init_tracing();
 
+    tracing::info!("Starting process...");
+
     // Parse CLI Arguments: The application starts by parsing command-line arguments provided by the user.
     let args = Args::parse();
 
     // Create an alloy provider for that private key and URL.
     let wallet = EthereumWallet::from(args.eth_wallet_private_key);
     let provider = ProviderBuilder::new().wallet(wallet).on_http(args.rpc_url);
-
-    tracing::info!("Created alloy provider");
+    tracing::debug!("Created alloy provider");
 
     // ABI encode input: Before sending the proof request to the Bonsai proving service,
     // the input number is ABI-encoded to match the format expected by the guest code running in the zkVM.
     let input = args.input.abi_encode();
-
-    tracing::info!("ABI has been encoded");
+    tracing::debug!("Input has been encoded");
 
     let env = ExecutorEnv::builder().write_slice(&input).build()?;
-
-    tracing::info!("ExecutorEnv");
 
     let receipt = default_prover()
         .prove_with_ctx(
@@ -76,13 +73,10 @@ async fn main() -> Result<()> {
             &ProverOpts::groth16(),
         )?
         .receipt;
-
-    tracing::info!("prove_with_ctx");
+    tracing::debug!("Got Receipt of the zero-knowledge proof of computation");
 
     // Encode the seal with the selector.
     let seal = encode_seal(&receipt)?;
-
-    tracing::info!("Encode the seal");
 
     // Extract the journal from the receipt.
     let journal = receipt.journal.bytes.clone();
@@ -91,6 +85,7 @@ async fn main() -> Result<()> {
     // the verified number. This ensures that the number being submitted to the blockchain matches
     // the number that was verified off-chain.
     let x = U256::abi_decode(&journal, true).context("decoding journal data")?;
+    tracing::debug!("Journal data decoded");
 
     // Construct function call: Using the IOddNumber interface, the application constructs
     // the ABI-encoded function call for the set function of the OddNumber contract.
@@ -105,10 +100,7 @@ async fn main() -> Result<()> {
     // Wait for the transaction to be included and get the receipt.
     let receipt = pending_tx.get_receipt().await?;
 
-    println!(
-        "Transaction included in block {}",
-        receipt.block_number.expect("Failed to get block number")
-    );
+    tracing::info!("Process completed - Proof has been published successfully");
 
     Ok(())
 }
