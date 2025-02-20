@@ -73,7 +73,7 @@ async fn main() -> Result<()> {
             &ProverOpts::groth16(),
         )?
         .receipt;
-    tracing::debug!("Got Receipt of the zero-knowledge proof of computation");
+    tracing::debug!("Got receipt of the zero-knowledge proof of computation");
 
     // Encode the seal with the selector.
     let seal = encode_seal(&receipt)?;
