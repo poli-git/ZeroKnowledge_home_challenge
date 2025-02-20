@@ -8,7 +8,17 @@ The assignment received listed the need to create system consisting of an on-cha
 
 ### Technical Assessment
 
-After reviewing and validating proposed documentation and running some internal tests to get a better understanding about requirements, the best approach to folow in order to complete the assignment is to generate the solution by levering the [risc0-foundry-template][risc0-foundry-tpl]
+After reviewing and validating proposed documentation, the approach followed to complete the assignment is to generate the solution by levering the [risc0-foundry-template][risc0-foundry-tpl].
+
+This template provides a starting point for building powerful new applications on Ethereum that offload work that is computationally intensive (i.e. gas expensive), or difficult to implement in Solidity (e.g. ed25519 signature verification, or HTML parsing).
+
+In order to build the solution using the RISC Zero Foundry Template, changes were made in three main areas:
+
+- ***Guest Code***: Write the code you want proven in the [methods/guest](./methods/guest/) folder. This code runs off-chain within the RISC Zero zkVM and performs the actual computations. For example, the provided template includes a computation to check if a given number is even and generate a proof of this computation.
+- ***Smart Contracts***: Write the on-chain part of your project in the [contracts](./contracts/) folder. The smart contract verifies zkVM proofs and updates the blockchain state based on the results of off-chain computations. For instance, in the [EvenNumber](./contracts/EvenNumber.sol) example, the smart contract verifies a proof that a number is even and stores that number on-chain if the proof is valid.
+- ***Publisher Application***: Adjust the publisher example in the [apps](./apps) folder. The publisher application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. 
+
+
 
  and Here is a simplified overview of how devs can integrate RISC Zero, including with [Bonsai][docs-bonsai] proving, into their Ethereum smart contracts:
 
