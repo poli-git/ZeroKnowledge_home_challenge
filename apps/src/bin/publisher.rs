@@ -46,8 +46,6 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-  //  env_logger::init();
-
     // Initialize tracing
     init_tracing();
 
@@ -58,13 +56,13 @@ async fn main() -> Result<()> {
     let wallet = EthereumWallet::from(args.eth_wallet_private_key);
     let provider = ProviderBuilder::new().wallet(wallet).on_http(args.rpc_url);
 
-    println!("ALLOY BC {}", "Create an alloy provider");
+    tracing::info!("Create an alloy provider for that private key and URL");
 
     // ABI encode input: Before sending the proof request to the Bonsai proving service,
     // the input number is ABI-encoded to match the format expected by the guest code running in the zkVM.
     let input = args.input.abi_encode();
 
-    println!("ABI encode input {}", "*ABI encode input*");
+    tracing::info!("ABI had been encoded");
 
     let env = ExecutorEnv::builder().write_slice(&input).build()?;
 
