@@ -19,6 +19,8 @@ use opentelemetry::{
 use opentelemetry_otlp::WithExportConfig;
 use rand::Rng;
 
+mod trace_logs;
+
 // `IOddNumber` interface automatically generated via the alloy `sol!` macro.
 alloy::sol!(
     #[sol(rpc, all_derives)]
@@ -67,7 +69,7 @@ fn init_tracer() -> Result<trace::Tracer, TraceError> {
         .with_trace_config(
             trace::config().with_resource(Resource::new(vec![KeyValue::new(
                 opentelemetry_semantic_conventions::resource::SERVICE_NAME,
-                "rust-otlp-basic",
+                "fermah-challenge-service",
             )])),
         )
         .install_batch(runtime::Tokio) // configure a span exporter
@@ -81,6 +83,9 @@ fn gen_number() -> u32 {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    // Initialize tracing
+    init_tracing();
+
     env_logger::init();
     // Parse CLI Arguments: The application starts by parsing command-line arguments provided by the user.
     let args = Args::parse();
@@ -94,13 +99,8 @@ async fn main() -> Result<()> {
     let tracer = init_tracer()?;
 
     // start a new active span
-    tracer.in_span("PEPEPEP generating number", |cx| {
+    tracer.in_span("Fermah - Challenge", |cx| {
         let span = cx.span();
-        let num = gen_number();
-        span.add_event(
-            "FIFUFUUUU opentel demo event Generating Number".to_string(),
-            vec![Key::new("number").i64(num.into())],
-        );
 
         // set an active span attribute
         span.set_attribute(RANDOM.i64(10));
