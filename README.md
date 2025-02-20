@@ -15,8 +15,8 @@ This template provides a starting point for building powerful new applications o
 In order to build the solution using the RISC Zero Foundry Template, changes were made in three main areas:
 
 - ***Guest Code***: The code created to check if a given number is **odd** and generate a proof of this computation was added in the [methods/guest](./methods/guest/) folder. This code runs off-chain within the RISC Zero zkVM and performs the actual computations.
-- ***Smart Contracts***: Write the on-chain part of your project in the [contracts](./contracts/) folder. The smart contract verifies zkVM proofs and updates the blockchain state based on the results of off-chain computations. For instance, in the [EvenNumber](./contracts/EvenNumber.sol) example, the smart contract verifies a proof that a number is even and stores that number on-chain if the proof is valid.
-- ***Publisher Application***: Adjust the publisher example in the [apps](./apps) folder. The publisher application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. 
+- ***Smart Contracts***: The on-chain part of the solution is located in the [contracts](./contracts/) folder. The smart contract verifies zkVM proofs and updates the blockchain state based on the results of off-chain computations. For instance, in the [OddNumber](./contracts/OddNumber.sol) scenario, the smart contract verifies a proof that a number is odd and implements a counter that increments every time an odd number is submitted.
+- ***Publisher Application***: This is the main orchestration app and is located in the [apps](./apps) folder. The **publisher** application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. 
 
 
 
