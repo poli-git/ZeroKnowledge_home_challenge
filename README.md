@@ -153,9 +153,9 @@ RISC0_USE_DOCKER=1 cargo build
 
 > ***Note:*** *This requires having Docker installed and in your PATH. To install Docker see [Get Docker][install-docker].*
 
-## Deploy Your Application
+## Application deployment
 
-When you're ready, follow the [deployment guide](./deployment-guide.md) to get your application running on [Sepolia][sepolia] or Ethereum Mainnet.
+Please find here [deployment guide](./deployment-guide.md) to get the application running on [Sepolia][sepolia] or Ethereum Mainnet.
 
 ## Project Structure
 
@@ -170,21 +170,21 @@ Below are the primary files in the project directory
 │   └── src
 │       └── lib.rs                  // Utility functions
 │       └── bin                     
-│           └── publisher.rs        // Example app to publish program results into your app contract 
+│           └── publisher.rs        // App to publish the received proofs directly to the deployed app contract
 ├── contracts
-│   ├── EvenNumber.sol              // Basic example contract for you to modify
+│   ├── OddNumber.sol               // Contract that implements a counter that increments every time an odd number is submitted
 │   └── ImageID.sol                 // Generated contract with the image ID for your zkVM program
 ├── methods
 │   ├── Cargo.toml
 │   ├── guest
 │   │   ├── Cargo.toml
 │   │   └── src
-│   │       └── bin                 // You can add additional guest programs to this folder
-│   │           └── is_even.rs      // Example guest program for checking if a number is even
+│   │       └── bin                 
+│   │           └── is_odd.rs       // Guest program for checking if a number is odd
 │   └── src
-│       └── lib.rs                  // Compiled image IDs and tests for your guest programs
+│       └── lib.rs                  // Compiled image IDs and tests of guest program (is_odd)
 └── tests
-    ├── EvenNumber.t.sol            // Tests for the basic example contract
+    ├── OddNumber.t.sol             // Tests for the OddNumber contract
     └── Elf.sol                     // Generated contract with paths the guest program ELF files.
 ```
 
