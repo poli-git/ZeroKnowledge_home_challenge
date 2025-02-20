@@ -1,19 +1,13 @@
 # Fermah Take Home Assignment
 
 
-# RISC Zero Foundry Template
-
-> Prove computation with the [RISC Zero zkVM][docs-zkvm] and verify the results in your Ethereum contract.
-
-This repository implements an example application on Ethereum utilizing RISC Zero as a [coprocessor][blog-coprocessor] to the smart contract application.
-It provides a starting point for building powerful new applications on Ethereum that offload work that is computationally intensive (i.e. gas expensive), or difficult to implement in Solidity (e.g. ed25519 signature verification, or HTML parsing).
-
-<!-- TODO(#100) Integrate support for Steel more directly into this repo -->
-Integrate with [Steel][steel-repo] to execute view calls and simulate transactions on Ethereum. Check out the [ERC-20 counter][erc20-counter] demo to see an example.
-
 ## Overview
 
-Here is a simplified overview of how devs can integrate RISC Zero, including with [Bonsai][docs-bonsai] proving, into their Ethereum smart contracts:
+The requirements document received listed the need to create system consisting of an on-chain smart contract and an off-chain component that demonstrates zero-knowledge proof generation and  verification using with both Rust and development practices. The system should showcase the ability to work with both [Rust][install-rust] and [Solidity][solidity-org] while implementing modern blockchain.
+
+
+
+ and Here is a simplified overview of how devs can integrate RISC Zero, including with [Bonsai][docs-bonsai] proving, into their Ethereum smart contracts:
 
 ![RISC Zero Foundry Template Diagram](images/risc0-foundry-template.png)
 
@@ -207,3 +201,4 @@ Below are the primary files in the project directory
 [term-journal]: https://dev.risczero.com/terminology#journal
 [steel-repo]: https://github.com/risc0/risc0-ethereum/tree/main/crates/steel
 [erc20-counter]: https://github.com/risc0/risc0-ethereum/tree/main/examples/erc20-counter
+[solidity-org]: https://soliditylang.org/
