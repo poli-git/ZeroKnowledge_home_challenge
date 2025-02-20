@@ -1,9 +1,9 @@
 # Fermah - Challenge: Deployment Guide
 
 
-## Deploy your project on a local network
+## Steps to deploy on a local network
 
-You can deploy your contracts and run an end-to-end test or demo as follows:
+Deploy your contracts and run an end-to-end test or demo as follows:
 
 1. Start a local testnet with `anvil` by running:
 
@@ -83,9 +83,9 @@ You can deploy your contracts and run an end-to-end test or demo as follows:
     cast call --rpc-url http://localhost:8545 ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
-## Deploy your project on Sepolia testnet
+## Steps to on Sepolia testnet
 
-You can deploy your contracts on the `Sepolia` testnet and run an end-to-end test or demo as follows:
+Deploy your contracts on the `Sepolia` testnet and run an end-to-end test or demo as follows:
 
 1. Get access to Bonsai and an Ethereum node running on Sepolia testnet (in this example, we will be using [Alchemy](https://www.alchemy.com/) as our Ethereum node provider) and export the following environment variables:
     > ***Note:*** *This requires having access to a Bonsai API Key. To request an API key [complete the form here](https://bonsai.xyz/apply).*
@@ -158,9 +158,9 @@ You can deploy your contracts on the `Sepolia` testnet and run an end-to-end tes
     cast call --rpc-url https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
-## Deploy your project on Ethereum mainnet
+## Steps to deploy on Ethereum mainnet
 
-You can deploy your contract on Ethereum Mainnet as follows:
+Deploy your contract on Ethereum Mainnet as follows:
 
 1. Get access to Bonsai and an Ethereum node running on Mainnet (in this example, we will be using [Alchemy](https://www.alchemy.com/) as our Ethereum node provider) and export the following environment variables:
     > ***Note:*** *This requires having access to a Bonsai API Key. To request an API key [complete the form here](https://bonsai.xyz/apply).*
