@@ -46,7 +46,7 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    env_logger::init();
+  //  env_logger::init();
 
     // Initialize tracing
     init_tracing();
