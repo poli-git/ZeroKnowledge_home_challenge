@@ -66,6 +66,8 @@ async fn main() -> Result<()> {
 
     let env = ExecutorEnv::builder().write_slice(&input).build()?;
 
+    tracing::info!("ExecutorEnv");
+
     let receipt = default_prover()
         .prove_with_ctx(
             env,
@@ -75,8 +77,12 @@ async fn main() -> Result<()> {
         )?
         .receipt;
 
+    tracing::info!("prove_with_ctx");
+
     // Encode the seal with the selector.
     let seal = encode_seal(&receipt)?;
+
+    tracing::info!("Encode the seal");
 
     // Extract the journal from the receipt.
     let journal = receipt.journal.bytes.clone();
