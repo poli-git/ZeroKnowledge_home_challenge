@@ -3,7 +3,7 @@
 
 ## Overview
 
-The requirements document received listed the need to create system consisting of an on-chain smart contract and an off-chain component that demonstrates zero-knowledge proof generation and  verification using with both Rust and development practices. The system should showcase the ability to work with both [Rust][install-rust] and [Solidity][solidity-org] while implementing modern blockchain.
+The assignment received listed the need to create system consisting of an on-chain smart contract and an off-chain component that demonstrates zero-knowledge proof generation and  verification using with both Rust and development practices. The system should showcase the ability to work with both [Rust][install-rust] and [Solidity][solidity-org] while implementing modern blockchain.
 
 
 
