@@ -46,12 +46,12 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    env_logger::init();
+
     // Initialize tracing
     init_tracing();
 
-    env_logger::init();
     // Parse CLI Arguments: The application starts by parsing command-line arguments provided by the user.
-
     let args = Args::parse();
 
     // Create an alloy provider for that private key and URL.
