@@ -1,3 +1,6 @@
+# Fermah Take Home Assignment
+
+
 # RISC Zero Foundry Template
 
 > Prove computation with the [RISC Zero zkVM][docs-zkvm] and verify the results in your Ethereum contract.
@@ -171,7 +174,7 @@ Below are the primary files in the project directory
 │       └── bin                     
 │           └── publisher.rs        // App to publish the received proofs directly to the deployed app contract
 │           └── trace_logs
-│           └── mod.rs              // Tracing logs functionality
+│               └── mod.rs          // Tracing logs functionality
 ├── contracts
 │   ├── OddNumber.sol               // Contract that implements a counter that increments every time an odd number is submitted
 │   └── ImageID.sol                 // Generated contract with the image ID for your zkVM program
