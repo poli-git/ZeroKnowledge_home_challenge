@@ -8,7 +8,7 @@ The assignment received listed the need to create system consisting of an on-cha
 
 ### Technical Assessment
 
-After reviewing and validating proposed documentation, the approach followed to complete the assignment is to generate the solution by levering the [risc0-foundry-template][risc0-foundry-tpl].
+After reviewing and validating proposed documentation, the approach followed to complete the assignment was to generate the solution by levering the [risc0-foundry-template][risc0-foundry-tpl].
 
 This template provides a starting point for building powerful new applications on Ethereum that offload work that is computationally intensive (i.e. gas expensive), or difficult to implement in Solidity (e.g. ed25519 signature verification, or HTML parsing).
 
