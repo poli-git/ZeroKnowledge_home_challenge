@@ -16,7 +16,7 @@ In order to build the solution using the RISC Zero Foundry Template, changes wer
 
 - ***Guest Code***: The piece of code developed to validate if a given number is **odd** and generate a proof of this computation was added under the [methods/guest](./methods/guest/) folder. This code runs off-chain within the RISC Zero zkVM and performs the actual computations.
 - ***Smart Contracts***: The on-chain part of the solution is located in the [contracts](./contracts/) folder. The smart contract verifies zkVM proofs and updates the blockchain state based on the results of off-chain computations. For instance, in the [OddNumber](./contracts/OddNumber.sol) scenario, the smart contract verifies a proof that a number is odd and implements a counter that increments every time an odd number is submitted.
-- ***Publisher Application***: This is the main orchestration app and is located in the [apps](./apps) folder. The **publisher** application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. 
+- ***Publisher Application***: This is the main orchestration app and is located in the [apps](./apps) folder. The **publisher** application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. All on-chain interactions are excuted by using [Alloy][alloy-crate] crate.
 
 
 ## Project Dependencies
@@ -166,3 +166,4 @@ Below are the primary files in the project directory
 [risc0-foundry-tpl]: https://github.com/risc0/risc0-foundry-template
 [risc0-install]:https://dev.risczero.com/api/zkvm/install
 [rust-toolchain]: https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file
+[alloy-crate]: https://crates.io/crates/alloy
