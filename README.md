@@ -67,12 +67,18 @@ cargo risczero --version
   cargo build
   ```
 
-  > NOTE: In case you may find building issues with the `stable` version for Rust, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
+  > NOTE: In case you may find building issues with the `stable` version for Rust and need to build std library, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
 
   ```sh
   [toolchain]
   channel = "nightly"
   ```
+
+> and use the -Z option - It is also recommended to target the specific version of the system
+
+```sh 
+  cargo build -Zbuild-std --target x86_64-unknown-linux-gnu
+```
 
 - Build your Solidity smart contracts.
 
