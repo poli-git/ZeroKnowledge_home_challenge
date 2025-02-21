@@ -87,7 +87,7 @@ Deploy your contracts and run an end-to-end test or demo as follows:
 
 Deploy your contracts on the `Sepolia` testnet and run an end-to-end test or demo as follows:
 
-1. Get access to Bonsai and an Ethereum node running on Sepolia testnet (in this example, we will be using [Alchemy](https://www.alchemy.com/) as our Ethereum node provider) and export the following environment variables:
+1. Get access to Bonsai and an Ethereum node running on Sepolia testnet (in this case, we will be using [Alchemy](https://www.alchemy.com/) as our Ethereum node provider) and export the following environment variables:
     > ***Note:*** *This requires having access to a Bonsai API Key. To request an API key [complete the form here](https://bonsai.xyz/apply).*
     > Alternatively you can generate your proofs locally, assuming you have a machine with an x86 architecture and [Docker] installed. In this case do not export Bonsai related env variables.
 
@@ -162,7 +162,7 @@ Deploy your contracts on the `Sepolia` testnet and run an end-to-end test or dem
 
 Deploy your contract on Ethereum Mainnet as follows:
 
-1. Get access to Bonsai and an Ethereum node running on Mainnet (in this example, we will be using [Alchemy](https://www.alchemy.com/) as our Ethereum node provider) and export the following environment variables:
+1. Get access to Bonsai and an Ethereum node running on Mainnet (in this case, we will be using [Alchemy](https://www.alchemy.com/) as our Ethereum node provider) and export the following environment variables:
     > ***Note:*** *This requires having access to a Bonsai API Key. To request an API key [complete the form here](https://bonsai.xyz/apply).*
     > Alternatively you can generate your proofs locally, assuming you have a machine with an x86 architecture and [Docker] installed. In this case do not export Bonsai related env variables.
 
@@ -182,7 +182,7 @@ Deploy your contract on Ethereum Mainnet as follows:
 3. Deploy your contract by running:
 
     You'll need to pass options to forge script to connect to your deployer wallet. See the [Foundry documentation][forge-script-wallet-docs].
-    The example command below configures Forge to use a Ledger hardware wallet.
+    The command below configures Forge to use a Ledger hardware wallet.
 
     ```bash
     forge script script/Deploy.s.sol --rpc-url https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} --broadcast --ledger
@@ -222,7 +222,7 @@ Deploy your contract on Ethereum Mainnet as follows:
 
 2. Publish a new state
 
-    > NOTE: Currently only a local wallet, provided by the `ETH_WALLET_PRIVATE_KEY` env var is implemented in the example publisher app.
+    > NOTE: Currently only a local wallet, provided by the `ETH_WALLET_PRIVATE_KEY` env var is implemented in the publisher app.
     > Please see https://github.com/risc0/risc0-foundry-template/issues/121 for more details.
 
     ```bash
