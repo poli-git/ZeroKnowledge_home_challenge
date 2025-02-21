@@ -38,6 +38,9 @@ To install `rzup`, run the following command and follow the instructions:
 curl -L https://risczero.com/install | bash
 ```
 
+This installation will work for x86-64 Linux and arm64 macOS. In case you have a different target, you will need to progress with the manual installation.
+Please read [RISC Zero Installation steps][risc0-install]
+
 Next we can install the RISC Zero toolchain by running `rzup`:
 
 ```sh
@@ -51,25 +54,6 @@ cargo risczero --version
 ```
 
 Now you have all the tools you need to develop and deploy an application with [RISC Zero][homepage-risczero].
-
-## Quick Start
-
-First, install the RISC Zero toolchain using the [instructions above](#dependencies).
-
-Now, you can initialize a new RISC Zero project at a location of your choosing:
-
-```sh
-forge init -t risc0/risc0-foundry-template ./my-project
-```
-
-Congratulations! You've just started your first RISC Zero project.
-
-Your new project consists of:
-
-- a [zkVM program](./methods) (written in Rust), which specifies a computation that will be proven;
-- a [app contract](./contracts) (written in Solidity), which uses the proven results;
-- a [publisher](./apps) which makes proving requests to [Bonsai][docs-bonsai] and posts the proof to Ethereum.
-  We provide an example implementation, but your dApp interface or application servers could act as the publisher.
 
 ### Build the Code
 
@@ -206,3 +190,4 @@ Below are the primary files in the project directory
 [erc20-counter]: https://github.com/risc0/risc0-ethereum/tree/main/examples/erc20-counter
 [solidity-org]: https://soliditylang.org/
 [risc0-foundry-tpl]: https://github.com/risc0/risc0-foundry-template
+[risc0-install]:https://dev.risczero.com/api/zkvm/install
