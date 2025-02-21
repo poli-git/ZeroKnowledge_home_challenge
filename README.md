@@ -67,7 +67,7 @@ cargo risczero --version
   cargo build
   ```
 
-  *Note*: In case you may find building issues with the `stable` version for Rust, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
+  > NOTE: In case you may find building issues with the `stable` version for Rust, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
 
   ```sh
   [toolchain]
