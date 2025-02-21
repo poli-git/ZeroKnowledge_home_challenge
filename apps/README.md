@@ -1,4 +1,4 @@
-# Fermah - Challenge: Integration/Orchestration App
+# Fermah - Challenge: Integration App
 
 An off-chain intgration applications is required to perform two main actions:
 
