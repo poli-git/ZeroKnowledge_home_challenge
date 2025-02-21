@@ -53,8 +53,6 @@ You can verify the installation was successful by running:
 cargo risczero --version
 ```
 
-Now you have all the tools you need to develop and deploy an application with [RISC Zero][homepage-risczero].
-
 ### Build the Code
 
 - Update git submodules.
