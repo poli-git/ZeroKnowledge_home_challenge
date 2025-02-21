@@ -19,7 +19,7 @@ In order to build the solution using the RISC Zero Foundry Template, changes wer
 - ***Publisher Application***: This is the main orchestration app and is located in the [apps](./apps) folder. The **publisher** application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum. 
 
 
-## Dependencies
+## Project Dependencies
 
 First, [install Rust][install-rust] and [Foundry][install-foundry], and then restart your terminal.
 
