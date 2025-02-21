@@ -113,7 +113,7 @@ cargo risczero --version
 
 ## Application deployment
 
-Please find here [deployment guide](./deployment-guide.md) to get the application running Locally, [Sepolia][sepolia] or Ethereum Mainnet.
+Please find here [deployment guide](./deployment-guide.md) to get the application running Locally (w/Anvil), [Sepolia][sepolia] or Ethereum Mainnet.
 
 ## Project Structure
 
