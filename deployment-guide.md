@@ -74,7 +74,7 @@ Deploy your contracts and run an end-to-end test or demo as follows:
         --chain-id=31337 \
         --rpc-url=http://localhost:8545 \
         --contract=${ODD_NUMBER_ADDRESS:?} \
-        --input=12345678
+        --input=12345675
     ```
 
 3. Query the state again to see the change:
@@ -149,7 +149,7 @@ Deploy your contracts on the `Sepolia` testnet and run an end-to-end test or dem
         --chain-id=11155111 \
         --rpc-url=https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} \
         --contract=${ODD_NUMBER_ADDRESS:?} \
-        --input=12345678
+        --input=12345675
     ```
 
 3. Query the state again to see the change:
@@ -230,7 +230,7 @@ Deploy your contract on Ethereum Mainnet as follows:
         --chain-id=1 \
         --rpc-url=https://eth-mainnet.g.alchemy.com/v2/${ALCHEMY_API_KEY:?} \
         --contract=${ODD_NUMBER_ADDRESS:?} \
-        --input=12345678
+        --input=12345675
     ```
 
 3. Query the state again to see the change:
