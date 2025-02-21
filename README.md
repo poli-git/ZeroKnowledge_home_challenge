@@ -67,7 +67,7 @@ cargo risczero --version
   cargo build
   ```
 
-  > NOTE: In case you may find building issues with the `stable` version for Rust and need to build std library, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
+  > NOTE: In case you may find building issues with the `stable` version for Rust and need to re-build std library, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
 
   ```sh
   [toolchain]
@@ -80,7 +80,7 @@ cargo risczero --version
       cargo build -Zbuild-std --target x86_64-unknown-linux-gnu
     ```
 
-- Build your Solidity smart contracts.
+- Build Solidity smart contracts.
 
   > NOTE: `cargo build` needs to run first to generate the `ImageID.sol` contract.
 
@@ -90,13 +90,13 @@ cargo risczero --version
 
 ### Run the Tests
 
-- Tests your zkVM program.
+- Tests zkVM program.
 
   ```sh
   cargo test
   ```
 
-- Test your Solidity contracts, integrated with your zkVM program.
+- Test Solidity contracts, integrated with zkVM program.
 
   ```sh
   RISC0_DEV_MODE=true forge test -vvv 
@@ -110,43 +110,6 @@ cargo risczero --version
 
   Producing the [Groth16 SNARK proofs][groth16] for this test requires running on an x86 machine with [Docker][install-docker] installed, or using [Bonsai](#configuring-bonsai).
   Apple silicon is currently unsupported for local proving, you can find out more info in the relevant issues [here](https://github.com/risc0/risc0/issues/1520) and [here](https://github.com/risc0/risc0/issues/1749).
-
-## Develop Your Application
-
-To build your application using the RISC Zero Foundry Template, you’ll need to make changes in three main areas:
-
-- ***Guest Code***: Write the code you want proven in the [methods/guest](./methods/guest/) folder. This code runs off-chain within the RISC Zero zkVM and performs the actual computations. For example, the provided template includes a computation to check if a given number is even and generate a proof of this computation.
-- ***Smart Contracts***: Write the on-chain part of your project in the [contracts](./contracts/) folder. The smart contract verifies zkVM proofs and updates the blockchain state based on the results of off-chain computations. For instance, in the [EvenNumber](./contracts/EvenNumber.sol) example, the smart contract verifies a proof that a number is even and stores that number on-chain if the proof is valid.
-- ***Publisher Application***: Adjust the publisher example in the [apps](./apps) folder. The publisher application bridges off-chain computation with on-chain verification by submitting proof requests, receiving proofs, and publishing them to the smart contract on Ethereum.
-
-### Configuring Bonsai
-
-***Note:*** *To request an API key [complete the form here](https://bonsai.xyz/apply).*
-
-With the Bonsai proving service, you can produce a [Groth16 SNARK proof][Groth16] that is verifiable on-chain.
-You can get started by setting the following environment variables with your API key and associated URL.
-
-```bash
-export BONSAI_API_KEY="YOUR_API_KEY" # see form linked above
-export BONSAI_API_URL="BONSAI_URL" # provided with your api key
-```
-
-Now if you run `forge test` with `RISC0_DEV_MODE=false`, the test will run as before, but will additionally use the fully verifying `RiscZeroGroth16Verifier` contract instead of `MockRiscZeroVerifier` and will request a SNARK receipt from Bonsai.
-
-```bash
-RISC0_DEV_MODE=false forge test -vvv
-```
-
-### Deterministic Builds
-
-By setting the environment variable `RISC0_USE_DOCKER` a containerized build process via Docker will ensure that all builds of your guest code, regardless of the machine or local environment, will produce the same [image ID][image-id].
-The [image ID][image-id], and its importance to security, is explained in more detail in our [developer FAQ][faq].
-
-```bash
-RISC0_USE_DOCKER=1 cargo build
-```
-
-> ***Note:*** *This requires having Docker installed and in your PATH. To install Docker see [Get Docker][install-docker].*
 
 ## Application deployment
 
