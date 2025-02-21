@@ -1,16 +1,13 @@
 # Fermah - Challenge: Integration/Orchestration App
 
-In typical applications, an off-chain app is needed to do two main actions:
+An off-chain intgration applications is required to perform two main actions:
 
 * Produce a proof e.g. by sending a proof request to [Bonsai].
 * Send a transaction to Ethereum to execute your on-chain logic.
 
-This template provides the `publisher` CLI as an example application to execute these steps.
-In a production application, a back-end server or your dApp client may take on this role.
-
 ## Publisher
 
-The [`publisher` CLI][publisher], is an example application that sends an off-chain proof request to the [Bonsai] proving service, and publishes the received proofs to your deployed app contract.
+The [`publisher` CLI][publisher], is an application that sends an off-chain proof request to the [Bonsai] proving service, and publishes the received proofs to your deployed app contract.
 
 ### Usage
 
