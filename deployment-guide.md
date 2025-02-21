@@ -83,7 +83,7 @@ Deploy your contracts and run an end-to-end test or demo as follows:
     cast call --rpc-url http://localhost:8545 ${ODD_NUMBER_ADDRESS:?} 'get()(uint256)'
     ```
 
-## Steps to on Sepolia testnet
+## Steps to deploy on Sepolia testnet
 
 Deploy your contracts on the `Sepolia` testnet and run an end-to-end test or demo as follows:
 
