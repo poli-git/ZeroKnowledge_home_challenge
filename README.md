@@ -121,6 +121,7 @@ Below are the primary files in the project directory
 
 ```text
 .
+├──.github/workflows                // Proposed github.workflow for automated build and test
 ├── Cargo.toml                      // Configuration for Cargo and Rust
 ├── foundry.toml                    // Configuration for Foundry
 ├── apps
