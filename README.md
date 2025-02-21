@@ -67,6 +67,13 @@ cargo risczero --version
   cargo build
   ```
 
+  *Note*: In case you may find building issues with the `stable` version for Rust, you can update the [rust-toolchain.toml][rust-toolchain] and add `nightly` like this:
+
+  ```sh
+  [toolchain]
+  channel = "nightly"
+  ```
+
 - Build your Solidity smart contracts.
 
   > NOTE: `cargo build` needs to run first to generate the `ImageID.sol` contract.
@@ -189,3 +196,4 @@ Below are the primary files in the project directory
 [solidity-org]: https://soliditylang.org/
 [risc0-foundry-tpl]: https://github.com/risc0/risc0-foundry-template
 [risc0-install]:https://dev.risczero.com/api/zkvm/install
+[rust-toolchain]: https://rust-lang.github.io/rustup/overrides.html#the-toolchain-file
