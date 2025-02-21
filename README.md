@@ -74,11 +74,11 @@ cargo risczero --version
   channel = "nightly"
   ```
 
-> and use the -Z option - It is also recommended to target the specific version of the system
+    > and use the -Z option - It is also recommended to target the specific version of the system
 
-```sh 
-  cargo build -Zbuild-std --target x86_64-unknown-linux-gnu
-```
+    ```sh 
+      cargo build -Zbuild-std --target x86_64-unknown-linux-gnu
+    ```
 
 - Build your Solidity smart contracts.
 
