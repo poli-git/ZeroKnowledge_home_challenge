@@ -1,4 +1,4 @@
-# Fermah - Challenge:  zkVM Methods
+# Challenge:  zkVM Methods
 
  
 This directory contains the [zkVM] portion of the [RISC Zero] application.
