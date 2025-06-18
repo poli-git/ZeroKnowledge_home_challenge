@@ -1,4 +1,4 @@
-# Fermah - Challenge: Solidity Contracts
+# Challenge: Solidity Contracts
 
 This directory contains the Solidity contracts for an application with [RISC Zero] on Ethereum.
 
